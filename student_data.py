@@ -13,9 +13,10 @@ students = [
      {'id': '10', 'first_name': 'Isabella', 'last_name': 'Moore', 'age': 22, 'grade': 'B'}
  ]
 
-# def testing():
-#     condensed_students = [{'student_name': stu['first_name'] + ' ' + stu['last_name'], 'age': stu['age']} for stu in students]    
-#     pprint.pprint(condensed_students)
-#     return
+def testing():
+    # advanced_students = [student for student in students if (student['age'] < 21 and student['grade'] == 'A')]   
+    # pprint.pprint(condensed_students)
+    pprint.pprint(list(filter(lambda x : x['age'] > 20, students)))
+    return 
 
-# testing()
+testing()

@@ -13,40 +13,34 @@ app.config['students_list'] = students
 # path : http://127.0.0.1:8000/students
 @app.route("/students")
 def print():
-    # print(students)
     return students
 
 # returns an array of students older than 20
 @app.route("/students/old_students")
 def old_students():
-    old_students = list(filter(lambda x : x['age'] > 20, students))
-    return old_students
+    return list(filter(lambda x : x['age'] > 20, students))
 
 # returns an array of students younger than 21
 @app.route("/students/young_students")
 def young_students():
-    young_students = list(filter(lambda x : x['age'] < 21, students))
-    return young_students
+    return list(filter(lambda x : x['age'] < 21, students))
 
 # returns an array of students younger than 21 and grade of A
 @app.route("/students/advanced_students")
 def advance_students():
-    advanced_students = list(filter(lambda x : x['age'] < 21 and x['grade'] == 'A', students))
-    return advanced_students
+    return list(filter(lambda x : x['age'] < 21 and x['grade'] == 'A', students))
 
 # returns an array of student objects holding the keys of 'first_name' and "last_name' and their values
 @app.route("/students/condensedinfo")
 def condensed_info_students():
     # This is looping through the students list of dicts & creating a new dict using each loop iteration's needed key's
-    condensed_students = [{'first_name': stu['first_name'], 'last_name': stu['last_name']} for stu in students]
-    return condensed_students
+    return [{'first_name': stu['first_name'], 'last_name': stu['last_name']} for stu in students]
 
 # returns an array containing student full name + age
 @app.route("/students/studentagename")
 def student_info_basics():
     # This is looping through the students list of dicts & creating a new dict using each loop iteration's needed key's    
-    student_info = [{'student_name': stu['first_name'] + ' ' + stu['last_name'], 'age': stu['age']} for stu in students]    
-    return student_info
+    return [{'student_name': stu['first_name'] + ' ' + stu['last_name'], 'age': stu['age']} for stu in students]
 
 
 
